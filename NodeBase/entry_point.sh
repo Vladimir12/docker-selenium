@@ -29,6 +29,10 @@ if [ ! -z "$SE_OPTS" ]; then
   echo "appending selenium options: ${SE_OPTS}"
 fi
 
+# Start websockify OR launch.sh from noVNC git repo
+#noVNC/utils/launch.sh --vnc localhost:5900 &
+websockify --web noVNC 8787 localhost:5900 -D
+
 # TODO: Look into http://www.seleniumhq.org/docs/05_selenium_rc.jsp#browser-side-logs
 
 SERVERNUM=$(get_server_num)
