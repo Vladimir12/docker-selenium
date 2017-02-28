@@ -16,6 +16,14 @@ RUN apt-get update -qqy \
     xvfb \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
+#==============
+# noVNC
+# websockets to tcp sockets
+#===============
+RUN apt-get update && apt-get  install -y net-tools python python-pip git \
+    && git clone https://github.com/novnc/noVNC.git \
+    && pip install websockify
+
 #==============================
 # Scripts to run Selenium Node
 #==============================
